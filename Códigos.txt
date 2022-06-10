@@ -1,0 +1,590 @@
+Capítulo 2
+
+let numero = 0;
+
+while (numero < 10) {
+	numero++
+
+	document.write (numero + "<br>");
+};
+
+for (let i = 0; i<10; i++) {
+	document.write(i);
+};
+
+frutas = ['bananas', 'manzana', 'pera']
+
+for (let i =0; i < frutas.length; i++){
+	document.write(frutas[i]+ "<br>");
+}
+
+for (a in frutas){
+	document.write(frutas[a]+ "<br>");
+}
+
+document.write(a+ "<br>");
+
+for (a of frutas){
+	document.write(a+ "<br>");
+}
+
+document.write(a+ "<br>");
+
+let compu = {
+	nombre: 'PC Artime',
+	ram: '16BG',
+	espacio: '1TB'
+}
+
+for (a in compu){
+	document.write(compu[a]+ "<br>");
+}
+
+---------------------------------------------------------------------------------------
+
+function saludar () {
+	respuesta = prompt ("Hola, cómo fue tu día");
+
+	if (respuesta == 'Bien') {
+		alert ('Me Alegro')
+	}
+	else {
+		alert ('Una pena')
+	};
+};
+
+saludar();
+
+
+function sumar2 (a, b) {
+	return a + b;
+};
+
+let a = parseFloat(prompt ('Ingrese número 1'));
+let b = parseFloat(prompt ('Ingrese número 2'));
+	
+document.write ("<br>"+sumar2 (a, b));
+
+const saludar2 = nombre => `hola ${nombre} cómo estás`;
+
+document.write(saludar2 ('Luis'))
+
+const sumar = (a, b) => a+b;
+const restar = (a, b) => a-b;
+const multiplicar = (a, b) => a*b;
+const dividir = (a, b) => a/b;
+
+document.write('<br>');
+document.write(sumar(10,20)+'<br>');
+document.write(restar(10,20)+'<br>');
+document.write(multiplicar(10,20)+'<br>');
+document.write(dividir(10,20)+'<br>');
+
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+Capítulo 3
+
+
+class Animal {
+	constructor (especie, edad, color) {
+		this.especie = especie;
+		this.edad = edad;
+		this.color = color;
+		this.info = `Soy un ${this.especie}, tengo ${this.edad} años y de color ${this.color}`;
+	}
+
+	verInfo() {
+		document.write (this.info+"<br>");
+	};
+
+}
+
+class Perro extends Animal {
+	constructor (especie, edad, color, raza) {
+		super(especie,edad, color);
+		this.raza = null
+	}
+
+	static ladrar () {
+		alert ('Waw!');
+	}
+
+	set setRaza (newName) {
+		this.raza = newName;
+	}
+
+	get getRaza () {
+		return this.raza;
+	}
+}
+
+const perroz = new Perro ("perro", 5, "rojo", "doberman");
+const gato = new Animal ("gato", 2, "blanco");
+const pajaro = new Animal ("pajaro", 1, "verde");
+
+perroz.color = "azul";
+perroz.setRaza = "bulldog";
+
+console.log (perroz.info);
+//console.log (gato.info);
+//console.log (pajaro.info);
+
+perroz.verInfo();
+gato.verInfo();
+pajaro.verInfo(); 
+//perroz.ladrar(); funciona tomando la clase pero no el objeto, o sea 
+Perro.ladrar();
+
+document.write (perroz.getRaza+"<br>")
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+CAPÍTULO 4
+---------------------------------------------------------------------
+Texto
+
+let cadena = "cadena de prueba";
+let cadena2 = " esta es la cadena 2";
+let cadena3 = "LT es un trucho trucho trucho trucho trucho"
+let cadena4 = "     Prueba espacios   "
+let prueba = "prueba"
+let prueba2 = "cadena"
+let prueba3 = "trucho"
+let resultado;
+
+resultado = cadena.concat(cadena2.concat (" hola"));
+document.write (resultado + "<br><br>");
+
+if (cadena.endsWith (prueba)) {
+	resultado = "La cadena termina con " + prueba;
+}
+else {
+	resultado = "La cadena NO termina con " + prueba;
+};
+document.write (resultado + "<br><br>");
+
+if (cadena.startsWith (prueba)) {
+	resultado = "La cadena empieza con " + prueba;
+}
+else {
+	resultado = "La cadena NO empieza con " + prueba;
+};
+document.write (resultado + "<br><br>");
+
+if (cadena.includes (prueba)) {
+	resultado = "La cadena incluye " + prueba;
+}
+else {
+	resultado = "La cadena NO incluye " + prueba;
+};
+document.write (resultado + "<br><br>");
+
+resultado = cadena.indexOf (prueba2);
+if (resultado >= 0) 
+	{resultado = `Por suerte encontramos ${prueba2} en la posición ${cadena.indexOf (prueba2)}`}
+else
+	{resultado = `No encontramos ${prueba2}`}
+;
+document.write (resultado + "<br><br>");
+
+let a = 11
+resultado = `En la posición ${a} está <b>${cadena [a]}</b>`;
+document.write (resultado + "<br><br>");
+
+resultado = `Encuentro la palabra ${prueba3} en la cadena 
+	en primer lugar en la posición <b>${cadena3.indexOf(prueba3)}</b><br>
+	y como último en la posición <b>${cadena3.lastIndexOf(prueba3)}</b>`;
+document.write (resultado + "<br><br>");
+
+let result = "";
+for (x = 0; x < cadena3.length; x++) {
+	result = result + cadena3[x];
+}
+document.write (x + result + "<br><br>"); // x queda afuera
+
+resultado = `Mayúscula: ${cadena.toUpperCase()}<br>
+	Minúscula: ${cadena.toLowerCase()}
+`;
+document.write (resultado + "<br><br>");
+
+
+resultado = cadena.repeat(3);
+document.write (resultado + "<br><br>");
+
+//resultado = cadena.PadStart(50, "1234");
+//document.write (resultado + "<br><br>");
+
+resultado = cadena.substring(4, 12);
+document.write (resultado + "<br><br>");
+
+result2 = cadena.split(" ");
+
+for (i in result2){
+	document.write("En la posición <b>"+i+"</b> se encuentra: <b>"+result2[i]+"</b><br>");
+};
+
+document.write (`Cadena con espacios es de largo ${cadena4.length}
+	 espacios y sin espacios ${cadena4.trim().length}`)
+
+---------------------------------------------------------------------
+Arrays
+Transformadores
+
+let nombres = ["Artime", "Kevin", "Rava", "Negro", "Walter","Ángel"];
+
+resultado = nombres;
+document.write("Original: <b>"+resultado+ "</b><br><br>");
+
+resultado = nombres.pop();
+document.write("Removido elemento final: <b style='color: red'>"+resultado+ "</b><br><br>");
+
+resultado = nombres.shift();
+document.write("Removido elemento inicial: <b style='color: red'>"+resultado+ "</b><br><br>");
+
+document.write("El array queda ahora: <b>"+nombres+ "</b><br><br>");
+
+resultado = nombres.push("Darío", "Gallardo");
+document.write("Ahora agrego: <b style='color: green'>"+resultado+ "</b><br><br>");
+
+document.write("El array queda ahora: <b>"+nombres+ "</b><br><br>");
+document.write("Si lo doy vuelta queda: <b>"+nombres.reverse()+ "</b><br><br>");
+
+resultado = nombres.unshift("Nico", "Ezequiel");
+document.write("Ahora agrego: <b style='color: green'>"+resultado+ "</b><br><br>");
+document.write("El array queda ahora: <b>"+nombres+ "</b><br><br>");
+
+resultado = nombres.sort();
+document.write("El array queda ordenado: <b>"+nombres+ "</b><br><br>");
+
+resultado = nombres.splice(1,3);
+document.write("Removido elementos 1, 2 y 3: <b style='color: red'>"+resultado+ "</b><br><br>");
+
+resultado = nombres.splice(1,3,"Luis", "Acertijo", "Diente de Leche");
+document.write("Ahora reemplazo estos 3 elementos: <b style='color: green'>"+resultado+ "</b><br><br>");
+document.write("El array queda ahora: <b>"+nombres+ "</b><br><br>");
+
+resultado = nombres.splice(1,0,"Elio", "Ramiro", "Nati");
+document.write("Ahora agrego estos 3 elementos en la posición 1: <b style='color: green'>"+resultado+ "</b><br><br>");
+document.write("El array queda ahora: <b>"+nombres+ "</b><br><br>");
+
+--- Accesores---
+let nombres = ["Artime", "Kevin", "Rava", "Negro", "Walter","Ángel"];
+
+resultado = nombres;
+document.write("Original: <b>"+resultado+ "</b><br><br>");
+
+resultado = nombres.join();
+document.write("Join transformó en texto, para probar el primer elemento / caracter es ahora: <b>"+resultado[0]+ "</b><br>");
+document.write("Y si miro nombre el primer elemento / caracter en nombres: <b>"+nombres[0]+ "</b><br><br>");
+
+resultado = nombres.join(" - ");
+document.write("Si quiero los uno con cualquier string, <b>"+resultado+ "</b><br><br>");
+
+resultado = nombres.slice(1,3);
+document.write("El slice es como el substring pero de elementos <b>"+resultado+ "</b><br><br>");
+
+resultado = nombres.slice(1,-1);
+document.write("El -1 hace que no se vea el último <b>"+resultado+ "</b><br><br>");
+
+// Repetición
+
+nombres.filter(nombre => document.write (nombre + "<br>"));
+
+document.write("<br>");
+
+nombres.forEach(nombre => document.write (nombre + "<br>")); // Por ahora igual
+
+document.write("<br>");
+
+resultado = nombres.filter(nombre => nombre.length > 5	);
+document.write("Filtrado los que tienen + de 5 elelementos <b>"+resultado+ "</b><br><br>");
+
+
+-------------------------------------------------------------------------------------------------------
+OBJETO MATH
+
+
+// Constante	Descripción	Valor
+// Math.E	Número de Euler	2.718281828459045
+// Math.LN2	Logaritmo natural en base 2	0.6931471805599453
+// Math.LN10	Logaritmo decimal	2.302585092994046
+// Math.LOG2E	Logaritmo base 2 de E	1.4426950408889634
+// Math.LOG10E	Logaritmo base 10 de E	0.4342944819032518
+// Math.PI	Número PI o Π	3.141592653589793
+// Math.SQRT1_2	Raíz cuadrada de 1/2	0.7071067811865476
+// Math.SQRT2	Raíz cuadrada de 2	1.4142135623730951
+
+ // Math.abs(x)	Devuelve el valor absoluto de x.	|x|
+ // Math.sign(x) 	Devuelve el signo del número: 1 positivo, -1 negativo	
+ // Math.exp(x)	Exponenciación. Devuelve el número e elevado a x.	ex
+ // Math.expm1(x) 	Equivalente a Math.exp(x) - 1.	ex-1
+ // Math.max(a, b, c...)	Devuelve el número más grande de los indicados por parámetro.	
+ // Math.min(a, b, c...)	Devuelve el número más pequeño de los indicados por parámetro.	
+ // Math.pow(base, exp)	Potenciación. Devuelve el número base elevado a exp.	baseexp
+ // Math.sqrt(x)	Devuelve la raíz cuadrada de x.	√x
+ // Math.cbrt(x) 	Devuelve la raíz cúbica de x.	√3x
+ // Math.imul(a, b) 	Equivalente a a * b, pero a nivel de bits.	
+ // Math.clz32(x) 	Devuelve el número de ceros a la izquierda de x en binario (32 bits).
+
+
+document.write("El valor absoluto de 3.44 es <b>" + Math.abs(3,44) + "</b><br>");//	Devuelve el valor absoluto de x.	|x|
+document.write("El signo del valor -3.44 es <b>" + Math.sign(-3,44) + "</b><br>");//	Devuelve el signo del número: 1 positivo, -1 negativo
+document.write("El valor de e a la exponencia 3 es <b>" + Math.exp(3) + "</b><br>");//	Exponenciación. Devuelve el número e elevado a x.	exativo
+document.write("El valor de e a la exponencia 3 menos 1 es <b>" + Math.expm1(3) + "</b><br>");//	Devuelve el signo del número: 1 positivo, -1 negativoEquivalente a Math.exp(x) - 1.	ex-1Devuelve el signo del número: 1 positivo, -1 negativo
+document.write("La raiz cuadrada de 144 es <b>" + Math.sqrt(144) + "</b><br>");//	Devuelve la raíz cuadrada de x.	√x
+document.write("La raiz cúbica de 27  es <b>" + Math.cbrt(27) + "</b><br>");//	Devuelve el signo del número: 1 positivo, -1 negativo
+
+
+document.write("<br>");
+let numeros = [10, 30, 144, 18, 1, -3, 243];
+document.write("El grupo números contiene <b>" + numeros + "</b><br>");
+document.write("<br>");
+document.write("El máximo elemento es <b>" + Math.max(10, 30, 144, 18, 1, -3, 243) + "</b><br>");
+document.write("El mínimo elemento es <b>" + Math.min(10, 30, 144, 18, 1, -3, 243) + "</b><br>");
+document.write("Para hacer un número aleatorio <b>" + Math.random() + "</b><br>");
+document.write("Para hacer un número aleatorio entero de 0 a 100 <b>" + Math.round(Math.random()*100) + "</b><br>");
+
+document.write("Para exponenciar 5 a la quinta <b>" + 5 ** 5 + "</b><br>");
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+const obtenerInformacion = (materia) => {
+	materias = {
+		matematica: ['Perez','juan', 'pedro', 'maria', 'cofla', 'Artime'],
+		fisica: ['Fernandez','juan', 'maria', 'cofla', 'Artime'],
+		ingles: ['Vazquez','juan', 'andrew', 'jorge', 'maria', 'cofla', 'Artime'],
+		quimica: ['Poropat','juan', 'pedro', 'maria', 'cofla']
+	};
+
+	if (materias[materia] !==undefined) {
+		return [materias [materia],materia];
+	}
+	else {
+		//return "La materia no existe cabeza";
+		return false
+	};
+
+}
+
+//document.write (obtenerInformacion('fisica')+"<br>");
+//document.write (obtenerInformacion('fisaica')+"<br>");
+
+const mostrarInfo = (materia) => {
+	let info = obtenerInformacion(materia);
+
+	if (info !== false){
+		document.write("Alumnos presentes en <b style = 'color: blue'>" +info [1] +"</b>:<br>");
+		let profe = info [0][0];
+		let alumnos = info[0].shift();
+
+		for (elem of info [0]) {
+			document.write (elem.toUpperCase()+"<br>");
+		};
+
+		document.write("El profesor es :<b style= 'color: green'>" +profe+"</b><br><br>");
+	}
+}
+
+mostrarInfo('matematica');
+mostrarInfo('fisica');
+mostrarInfo('ingles');
+mostrarInfo('quimica');
+
+--------------------------------------------------------------------------------------------------------------------
+materias = {
+	matematica: ['Perez','juan', 'pedro', 'maria', 'cofla', 'Artime'],
+	fisica: ['Fernandez','juan', 'maria', 'cofla', 'Artime'],
+	ingles: ['Vazquez','juan', 'andrew', 'jorge', 'maria', 'cofla', 'Artime'],
+	quimica: ['Poropat','juan', 'pedro', 'maria', 'cofla']
+};
+
+function inscribir (alumno,materia){
+	let alumnos = materias[materia];
+	let profesor = alumnos.shift();
+
+	materias[materia].unshift(profesor); // no sé por que se borró también en el array original
+
+	if (alumnos.length>=20) {
+		return "Las clases están llenas";
+	}
+	else {
+		if (alumnos.includes(alumno)) {
+			return "Ya estabas inscripto cabeza";
+		}
+		else {
+			materias[materia].push(alumno);
+			return "Has sido inscripto exitosamente";
+		}
+	}
+};
+
+//document.write(inscribir('CareCui','quimica')+"<br>");
+//document.write(materias['quimica']+"<br><br>");
+
+//document.write(inscribir('CareCui','quimica')+"<br>"); // Aquí debería rebotar
+//document.write(materias['quimica']);
+
+inscribir('CareCui','fisica');
+document.write(materias['fisica']+"<br>");
+inscribir('Jorge','fisica');
+document.write(materias['fisica']+"<br>");
+inscribir('Lucas','fisica');
+document.write(materias['fisica']+"<br>");
+inscribir('Laura','fisica');
+inscribir('Gera','fisica');
+inscribir('Fabio','fisica');
+inscribir('Maria','fisica');
+inscribir('Guille','fisica');
+inscribir('Negrito','fisica');
+inscribir('Jose','fisica');
+inscribir('Lucía','fisica');
+inscribir('María José','fisica');
+inscribir('Marce','fisica');
+inscribir('Fissore','fisica');
+inscribir('Negrito','fisica');
+inscribir('Jose','fisica');
+inscribir('Lucía','fisica');
+document.write(inscribir('María Josefina','fisica')+"<br>");
+document.write(inscribir('Joseph','fisica')+"<br>");
+document.write(inscribir('Conforto','fisica')+"<br>");
+document.write(materias['fisica']+"<br>");
+document.write(inscribir('María Joséz','fisica')+"<br>");
+document.write(materias['fisica']+"<br>");
+document.write(inscribir('Marcelilla','fisica')+"<br>");
+document.write(materias['fisica']+"<br>");
+document.write(inscribir('Passennheim','fisica')+"<br>");
+document.write(materias['fisica']+"<br>");
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+CAPÍTULO 5
+---------------------------------------------------------------------
+console.assert(5>13);
+console.error('Che capo, ¿Qué hiciste');
+console.log('Che capo, eso ya no se usa más');
+console.info('Che capo, eso ya no se usa más'); //diferencia mínima
+
+console.table([4,3,2,1,0,3,5]);
+
+console.warn('Ooooojo cabeza');
+
+console.dir([4,3,2,1,0,3,5]);
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+CAPÍTULO 6
+---------------------------------------------------------------------
+let parrafo = document.getElementById('parrafo');
+document.write(parrafo+"<br>");
+
+let parrafo2 = document.getElementsByTagName('p');
+document.write(parrafo2[0]+"<br>");
+
+let parrafo3 = document.querySelector('.cachula');
+document.write(parrafo3+"<br>");
+
+let parrafo4 = document.querySelector('#parrafo');
+document.write(parrafo4+"<br>");
+
+let parrafo5 = document.querySelectorAll('#parrafo');
+document.write(parrafo5[0]+"<br>");
+
+const rangoEtario = document.querySelector(".rangoEtario");
+
+rangoEtario.setAttribute('type','text');
+rangoEtario.setAttribute('type','range');
+document.write(rangoEtario+"<br>");
+
+document.write(rangoEtario.getAttribute('type'));
+
+--------------------
+const titulo = document.querySelector('.titulo');
+titulo.setAttribute('title', 'Título normal');
+
+const input = document.querySelector('.input-normal');
+document.write(input.value);
+
+input.type = "color";
+
+const input2 = document.querySelector('.input-file');
+input2.accept = "image/jpeg";
+
+const input3 = document.querySelector('.input-enform');
+//input3.minLength = 10;
+input3.placeholder = "a que no me podés escribir";
+input3.required = true;
+
+titulo.style.color = "#a22";
+titulo.style.backgroundColor = "#48e";
+titulo.style.padding = "30px";
+
+titulo.classList.add('grande');
+titulo.classList.add('rojo');
+
+let valor = titulo.classList.item (2);
+document.write (valor+ "<br>");
+
+function existeClase (nClase) {
+	let prueba 
+	if (titulo.classList.contains (nClase)){
+		prueba = "si";
+	}
+	else {
+		prueba = "NO";
+	};
+
+	return `La clase ${nClase} ${prueba} existe`;
+};
+
+document.write (existeClase('grande')+"<br>");
+document.write (existeClase('grandess')+"<br>");
+
+let resultado = titulo.textContent;
+document.write(resultado+"<br>");
+
+let resultado2 = titulo.innerText;
+document.write(resultado2+"<br>");
+
+let resultado3 = titulo.innerHTML;
+document.write(resultado3+"<br>");
+alert(resultado3);
+
+-----------------------------------------
+const contiene = document.querySelector('.contenedor');
+
+const item = document.createElement('LI');
+const textoDelItem = document.createTextNode('Este es un item de la lista');
+
+item.appendChild(textoDelItem);
+
+console.log (item);
+
+contiene.appendChild(item);
+
+let primerHijo = contiene.firstChild; //trae text porque cualquier cosa es un hijo
+console.log(primerHijo);
+
+let ultimoHijo = contiene.lastChild;
+console.log(ultimoHijo);
+
+primerHijo = contiene.firstElementChild; //Considera hijos sólo a los elementos
+console.log(primerHijo);
+
+const hijos = contiene.childNodes;
+console.log (hijos);
+
+hijos.forEach(hijo => console.log(hijo));
+
+const hijos2 = contiene.children; // Sólo elementos
+console.log (hijos2);
+
+// NO se puede recorrer con un ForEach pero si con un for
+
+for (hijo of hijos2) {
+	console.log(hijo);	
+}
+
+-------
+
+
